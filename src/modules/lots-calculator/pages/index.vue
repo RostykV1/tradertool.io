@@ -4,7 +4,6 @@
       <div class="inner-container-box flex column center">
         <div class="inputs-boxes flex column center">
           <p ref="titleelement" class="sfpro700 p-white title">Lots calculator</p>
-
           <div class="value-input-row flex wrap center">
             <p class="sfpro500 p-white input-title">Currency:</p>
             <div class="tabs flex wrap center">
@@ -37,7 +36,6 @@
               <div v-for="(value, index) in pageConfig.pipValues" :key="value" class="tab center" :class="{ active: value === valuePerPip }" @click="valuePerPip = value">
                 <p class="sfpro400 p-white75">{{ pageConfig.pipValues[index] }}</p>
               </div>
-              <!-- <input class="sfpro400 p-white" placeholder="Pip value" v-model="pipValue" type="number" /> -->
             </div>
           </div>
           <div class="value-input-row flex wrap center">
@@ -48,28 +46,6 @@
           </div>
         </div>
         <div class="results-row flex wrap center">
-          <!-- 
-          <div class="result-box flex column">
-            <div class="row clickable" @click="clickToCopy(valuePerPip.standard)">
-              <p class="sfpro500 p-white35">
-                Standard:
-                <span class="p-white">{{ spaceOrganizer(valuePerPip.standard) }}</span>
-              </p>
-            </div>
-            <div class="row clickable" @click="clickToCopy(valuePerPip.mini)">
-              <p class="sfpro500 p-white35">
-                Mini:
-                <span class="p-white">{{ spaceOrganizer(valuePerPip.mini) }}</span>
-              </p>
-            </div>
-            <div class="row clickable" @click="clickToCopy(valuePerPip.units)">
-              <p class="sfpro500 p-white35">
-                Units:
-                <span class="p-white">{{ spaceOrganizer(valuePerPip.units) }}</span>
-              </p>
-            </div>
-          </div>
-          -->
           <div class="result-box flex column">
             <div class="row">
               <p class="sfpro500 p-white35">
@@ -111,7 +87,7 @@ export default {
 
       accountBalance: 10000 as number,
       riskPercentage: 1 as number,
-      stopLossPips: 5 as number, //261 , 64
+      stopLossPips: 5 as number,
       valuePerPip: 1 as number,
     };
   },
