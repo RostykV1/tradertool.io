@@ -32,7 +32,7 @@ import { gsap } from "gsap";
 export default {
   data() {
     return {
-      intervalEvent: null as null | any,
+      intervalEvent: null as NodeJS.Timeout,
     };
   },
   mounted() {

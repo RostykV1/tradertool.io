@@ -3,12 +3,12 @@
     <div class="page-inner-container flex column center">
       <div class="inner-container-box flex column center">
         <div class="inputs-boxes flex column center">
-          <p class="sfpro700 p-white title" ref="titleelement">Lots calculator</p>
+          <p ref="titleelement" class="sfpro700 p-white title">Lots calculator</p>
 
           <div class="value-input-row flex wrap center">
             <p class="sfpro500 p-white input-title">Currency:</p>
             <div class="tabs flex wrap center">
-              <div class="tab center" :class="{ active: value === accountCurrency }" @click="accountCurrency = value" v-for="value in currencies" :key="value">
+              <div v-for="value in currencies" :key="value" class="tab center" :class="{ active: value === accountCurrency }" @click="accountCurrency = value">
                 <p class="sfpro400 p-white75" v-text="value"></p>
               </div>
             </div>
@@ -16,25 +16,25 @@
           <div class="value-input-row flex wrap center">
             <p class="sfpro500 p-white input-title">Account size:</p>
             <div class="tabs flex wrap center">
-              <div class="tab center" :class="{ active: value === accountBalance }" @click="accountBalance = value" v-for="value in pageConfig.accountBalances" :key="value">
+              <div v-for="value in pageConfig.accountBalances" :key="value" class="tab center" :class="{ active: value === accountBalance }" @click="accountBalance = value">
                 <p class="sfpro400 p-white75" v-text="transformToCurrency(value, false, accountCurrency)"></p>
               </div>
-              <input class="sfpro400 p-white" placeholder="Account size" v-model="accountBalance" type="number" />
+              <input v-model="accountBalance" class="sfpro400 p-white" placeholder="Account size" type="number" />
             </div>
           </div>
           <div class="value-input-row flex wrap center">
             <p class="sfpro500 p-white input-title">Risk percent:</p>
             <div class="tabs flex wrap center">
-              <div class="tab center" :class="{ active: value === riskPercentage }" @click="riskPercentage = value" v-for="value in pageConfig.risksPercentages" :key="value">
+              <div v-for="value in pageConfig.risksPercentages" :key="value" class="tab center" :class="{ active: value === riskPercentage }" @click="riskPercentage = value">
                 <p class="sfpro400 p-white75">{{ value }}%</p>
               </div>
-              <input class="sfpro400 p-white" placeholder="Account size" v-model="riskPercentage" type="number" />
+              <input v-model="riskPercentage" class="sfpro400 p-white" placeholder="Account size" type="number" />
             </div>
           </div>
           <div class="value-input-row flex wrap center">
             <p class="sfpro500 p-white input-title">pipValues:</p>
             <div class="tabs flex wrap center">
-              <div class="tab center" :class="{ active: value === valuePerPip }" @click="valuePerPip = value" v-for="(value, index) in pageConfig.pipValues" :key="value">
+              <div v-for="(value, index) in pageConfig.pipValues" :key="value" class="tab center" :class="{ active: value === valuePerPip }" @click="valuePerPip = value">
                 <p class="sfpro400 p-white75">{{ pageConfig.pipValues[index] }}</p>
               </div>
               <!-- <input class="sfpro400 p-white" placeholder="Pip value" v-model="pipValue" type="number" /> -->
@@ -43,7 +43,7 @@
           <div class="value-input-row flex wrap center">
             <p class="sfpro500 p-white input-title">Stop loss (pips):</p>
             <div class="tabs flex wrap center">
-              <input class="sfpro400 p-white" placeholder="Pips" v-model="stopLossPips" type="number" />
+              <input v-model="stopLossPips" class="sfpro400 p-white" placeholder="Pips" type="number" />
             </div>
           </div>
         </div>
@@ -115,18 +115,6 @@ export default {
       valuePerPip: 1 as number,
     };
   },
-  mounted() {
-    this.revealPage();
-  },
-  methods: {
-    clickToCopy,
-    spaceOrganizer,
-    transformToCurrency,
-    revealPage() {
-      const el = this.$refs.titleelement as HTMLElement;
-      textTyper(el);
-    },
-  },
   computed: {
     lotsAmount() {
       const accountBalance = this.accountBalance;
@@ -149,6 +137,18 @@ export default {
     },
     accountBalance() {
       this.accountBalance = Math.min(5000000, Math.max(0, this.accountBalance));
+    },
+  },
+  mounted() {
+    this.revealPage();
+  },
+  methods: {
+    clickToCopy,
+    spaceOrganizer,
+    transformToCurrency,
+    revealPage() {
+      const el = this.$refs.titleelement as HTMLElement;
+      textTyper(el);
     },
   },
 };

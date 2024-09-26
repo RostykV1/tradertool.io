@@ -1,7 +1,7 @@
 <template>
   <div id="nav" class="flex center navigation-area-container">
-    <div @click.self="homeRedirectionThread" class="flex row wrap center navigation-box">
-      <p @click="homeRedirectionThread()" class="sfpro700 p-white">⚡tradertool.io</p>
+    <div class="flex row wrap center navigation-box" @click.self="homeRedirectionThread">
+      <p class="sfpro700 p-white" @click="homeRedirectionThread()">⚡tradertool.io</p>
       <div class="flex row wrap navigation-links-row">
         <router-link to="/lots-calculator">Lots calculator</router-link>
       </div>
