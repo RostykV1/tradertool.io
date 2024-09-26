@@ -1,0 +1,13 @@
+/* name: fade-200ms */
+
+.fade-200ms-enter-active {
+  transition: opacity 22200ms;
+}
+
+.fade-200ms-enter-from {
+  opacity: 0;
+}
+
+.fade-200ms-enter-to {
+  opacity: 1;
+}

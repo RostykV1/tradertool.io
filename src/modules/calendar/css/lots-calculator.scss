@@ -1,0 +1,122 @@
+.module-lots-calculator-index-page {
+  flex: 1;
+  padding: 3rem 0;
+  .page-inner-container {
+    gap: 0.62rem;
+    & > p {
+      font-size: 0.75rem;
+    }
+    .inner-container-box {
+      gap: 1.38rem;
+      .inputs-boxes {
+        gap: 0.44rem;
+        p.title {
+          &,
+          * {
+            font-size: 2rem;
+            font-family: sfpro700;
+          }
+        }
+        .value-input-row {
+          gap: 0.94rem;
+          box-sizing: border-box;
+          padding: 0.3125rem 0.625rem;
+          p {
+            &.input-title {
+              font-size: 0.875rem;
+            }
+            &.sub-text {
+              margin-top: auto;
+              font-size: 0.625rem;
+              margin-left: -0.3rem;
+            }
+          }
+          .tabs {
+            gap: 0.31rem;
+            .tab {
+              height: 1.45rem;
+              box-sizing: border-box;
+              border-radius: 0.3125rem;
+              padding: 0.25rem 0.4375rem;
+              background: rgba(255, 255, 255, 0.03);
+              p {
+                font-size: 0.75rem;
+              }
+              &.active {
+                background: rgba(255, 255, 255, 0.1);
+                p {
+                  color: #fff;
+                }
+              }
+            }
+            input {
+              height: 1.45rem;
+              display: flex;
+              width: 6.4375rem;
+              font-size: 0.625rem;
+              box-sizing: border-box;
+              background: transparent;
+              border-radius: 0.3125rem;
+              padding: 0.25rem 0.4375rem;
+              background: rgba(255, 255, 255, 0.03);
+              &::-webkit-outer-spin-button,
+              &::-webkit-inner-spin-button,
+              &[type="number"] {
+                appearance: none;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+              }
+              &::placeholder {
+                color: rgba(255, 255, 255, 0.35);
+              }
+            }
+          }
+        }
+      }
+      .results-row {
+        gap: 0.94rem;
+        min-height: 6.38rem;
+        .result-box {
+          gap: 0.38rem;
+          min-height: 6.38rem;
+          min-width: 13.75rem;
+          box-sizing: border-box;
+          justify-content: center;
+          padding: 0.5rem 0.75rem;
+          border-radius: 0.3125rem;
+          background: rgba(255, 255, 255, 0.03);
+          p {
+            &.box-title {
+              font-size: 0.875rem;
+            }
+          }
+          .row {
+            &.clickable:active {
+              animation: click 0.2s ease-in-out;
+              @keyframes click {
+                0% {
+                  transform: translateX(0);
+                }
+                50% {
+                  transform: translateX(0.1rem);
+                }
+                100% {
+                  transform: translateX(0);
+                }
+              }
+            }
+            p {
+              font-size: 0.875rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .module-lots-calculator-index-page .value-input-row {
+    flex-direction: column;
+  }
+}

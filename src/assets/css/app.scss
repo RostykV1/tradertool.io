@@ -1,0 +1,93 @@
+#app {
+  width: 100vw;
+  gap: 0.62rem;
+  height: 100%;
+  margin: 0 auto;
+  padding: 1.56rem 0;
+  box-sizing: border-box;
+
+  #nav.navigation-area-container {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 1rem;
+    .navigation-box {
+      gap: 0.94rem;
+      padding: 0.62rem;
+      min-width: 10rem;
+      width: fit-content;
+      border-radius: 0.3125rem;
+      transition: 0.4s ease-in-out;
+      background: rgba(35, 37, 44, 0.35);
+      &:hover {
+        transition: 0.2s ease-in-out;
+        transform: scale3d(1.05, 1.03, 1);
+      }
+      .navigation-links-row {
+        gap: 0.31rem;
+        a {
+          height: 100%;
+          overflow: hidden;
+          position: relative;
+          font-size: 0.8125rem;
+          text-decoration: none;
+          border-radius: 0.3125rem;
+          padding: 0.3125rem 0.5rem;
+          color: rgba(255, 255, 255, 0.75);
+          background: rgba(255, 255, 255, 0.03);
+          &,
+          &::before {
+            transition: all 0.2s;
+          }
+          &::before {
+            top: 0;
+            width: 1rem;
+            content: "";
+            height: 1rem;
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0);
+          }
+          &:hover {
+            color: #fff;
+          }
+          &.router-link-active {
+            color: #fff;
+            &::before {
+              left: 0;
+              width: 100%;
+              height: 100%;
+              border-radius: 0;
+              animation: ripple 1s infinite;
+              background: rgba(255, 255, 255, 0.08);
+            }
+          }
+          @keyframes ripple {
+            0% {
+              transform: scale(0);
+              opacity: 1;
+            }
+            100% {
+              transform: scale(2);
+              opacity: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+  #footer.footer-area-container {
+    gap: 1rem;
+    padding: 0rem 2.1875rem 1rem;
+    p {
+      line-height: 130%;
+      text-align: center;
+      font-size: 0.85rem;
+    }
+  }
+}
+
+@media (min-width: 3000px) {
+  #app {
+    width: 50vw;
+  }
+}
